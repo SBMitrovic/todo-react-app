@@ -6,12 +6,13 @@ import AuthForm from './components/AuthForm'
 
 function App() {
   const { user, loading: authLoading, logout } = useAuth();
-  const { todos, loading: todosLoading, addTodo, updateTodo } = useTodos(user?.uid);
+  const { todos, loading: todosLoading, addTodo, updateTodo, deleteTodo } = useTodos(user?.uid);
   
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
   const [completed, setCompleted] = useState(false);
+  const [deletingIds, setDeletingIds] = useState(new Set());
 
   // Show loading spinner while checking authentication
   if (authLoading) {
@@ -53,9 +54,26 @@ function App() {
     await updateTodo(todoId, { completed: !currentStatus });
   }
 
+  async function handleDeleteTodo(todoId) {
+    // Add fade-out animation
+    setDeletingIds(prev => new Set([...prev, todoId]));
+    
+    // Wait for animation to complete
+    setTimeout(async () => {
+      await deleteTodo(todoId);
+      setDeletingIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(todoId);
+        return newSet;
+      });
+    }, 300); // Match CSS transition duration
+  }
+
   function returnAllTodos(todo, index) {
+    const isDeleting = deletingIds.has(todo.id);
+    
     return (
-      <div className='container' key={todo.id}>
+      <div className={`container ${isDeleting ? 'deleting' : ''}`} key={todo.id}>
         <div className="todo-header">
           <h3 className='todo-title'>{todo.name}</h3>
           <div className="todo-actions">
@@ -65,6 +83,14 @@ function App() {
               title="Click to toggle completion status"
             >
               {todo.completed ? '✅ Completed' : '⏳ Pending'}
+            </button>
+            <button 
+              className="delete-btn"
+              onClick={() => handleDeleteTodo(todo.id)}
+              title="Delete this todo"
+              disabled={isDeleting}
+            >
+              {isDeleting ? '⏳' : '🗑️'}
             </button>
           </div>
         </div>

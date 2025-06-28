@@ -1,0 +1,86 @@
+/* Center the whole app content vertically and horizontally */
+body, html, #root {
+  margin: 0; padding: 0; height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  flex-direction: column; /* stack children vertically */
+  gap: 20px; /* space between form and todos */
+}
+
+/* Form container */
+form {
+  width: 90%;         /* increased width */
+  max-width: 700px;   /* max width */
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin: 0 auto;      /* center horizontally */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Inputs style */
+form input[type="text"],
+form input[type="date"],
+form input[type="checkbox"] {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1 1 180px;
+}
+
+form input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: auto;
+  margin-left: 10px;
+}
+
+/* Submit button */
+form button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #357ab7;
+}
+
+/* Todo container style */
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  height: 25vh;
+  overflow-y: auto;
+}
+
+/* Headings */
+.container h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.container p {
+  margin: 6px 0;
+  color: #555;
+  font-size: 14px;
+}

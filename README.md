@@ -1,12 +1,77 @@
-# React + Vite
+#  Todo Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, modern React + Firebase todo app for your portfolio!
 
-Currently, two official plugins are available:
+##  Features
+- **User authentication** (sign up, login, logout)
+- **User-specific todos** (each user sees only their own)
+- **Add, complete, and delete todos**
+- **Real-time updates** (instant sync with Firebase)
+- **Responsive design** (mobile & desktop)
+- **Glassmorphism UI** with smooth transitions
+- **Date sorting** for todos
+- **Animated delete effect**
+- **Deployed on Netlify**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Tech Stack
+- [React](https://react.dev/) (Vite)
+- [Firebase](https://firebase.google.com/) (Auth + Firestore)
+- [Netlify](https://netlify.com/) (hosting)
+- Modern CSS
 
-## Expanding the ESLint configuration
+## 📦 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/SBMitrovic/todo-react-app.git
+   cd todo-react-app
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Set up Firebase:**
+   - Create a Firebase project
+   - Enable Authentication (Email/Password)
+   - Create a Firestore database
+   - Copy your config to `src/firebase/config.js`
+4. **Run locally:**
+   ```bash
+   npm run dev
+   ```
+5. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## 🌐 Deploying to Netlify
+1. Push your code to GitHub
+2. Connect your repo to Netlify ("New site from Git")
+3. Build command: `npm run build`
+4. Publish directory: `dist`
+5. Set any environment variables if needed
+
+## 📝 Usage
+- **Sign up** or **log in** with your email
+- **Add todos** with name, description, and date
+- **Mark as completed** with a checkbox or status badge
+- **Delete todos** with animated fade-out
+- **Log out** from the header
+
+## 📱 Responsive Design
+- 2-column grid on desktop
+- 1-column grid on mobile
+- Dynamic card sizing
+
+## 🔒 Security
+- Firestore rules restrict access to each user's own todos
+- Authentication required for all actions
+
+## 💡 Portfolio Value
+- Demonstrates modern React, Firebase, and deployment skills
+- Shows ability to build secure, real-world apps
+- Beautiful UI and smooth UX
+
+---
+
+**by Stefan-Branko Mitrovic**
